@@ -33,8 +33,18 @@ st.markdown("""
         margin-bottom: 20px;
     }
 </style>
-"", unsafe_allow_html=True)
 
+<div class="main-header">Welcome to the Bulk Email Sender</div>
+<div class="description">
+    This tool allows you to send personalized emails to multiple recipients efficiently. <br>
+    <strong>Key Features:</strong>
+    <ul>
+        <li>Upload recipient list in Excel or CSV format with 'name' and 'email' columns.</li>
+        <li>Personalized email greetings.</li>
+        <li>Option to attach files.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 # Header Section
 st.markdown("""
 <div class="main-header">Welcome to the Bulk Email Sender</div>
