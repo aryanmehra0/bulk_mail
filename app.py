@@ -5,6 +5,12 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 
+# Check for openpyxl library
+try:
+    import openpyxl
+except ImportError:
+    st.error("The 'openpyxl' library is missing. Please install it using 'pip install openpyxl' to read Excel files.")
+
 # Custom CSS for styling
 st.markdown("""
 <style>
@@ -70,11 +76,13 @@ if sender_email:
 
             if uploaded_file:
                 try:
+                    # Read the file based on its extension
                     if uploaded_file.name.endswith('.csv'):
                         data = pd.read_csv(uploaded_file)
                     else:
-                        data = pd.read_excel(uploaded_file)
+                        data = pd.read_excel(uploaded_file, engine='openpyxl')
 
+                    # Ensure the file has the required columns
                     if 'name' in data.columns and 'email' in data.columns:
                         recipients = data[['name', 'email']].to_dict('records')
                     else:
