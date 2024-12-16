@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 # Custom CSS for styling
-st.markdown("
+st.markdown(
 <style>
     body {
         font-family: Arial, sans-serif;
