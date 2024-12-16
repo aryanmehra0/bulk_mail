@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 # Custom CSS for styling
-st.markdown("""
+st.markdown("
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -44,7 +44,7 @@ st.markdown("""
         <li>Option to attach files.</li>
     </ul>
 </div>
-""", unsafe_allow_html=True)
+", unsafe_allow_html=True)
 # Header Section
 st.markdown("""
 <div class="main-header">Welcome to the Bulk Email Sender</div>
