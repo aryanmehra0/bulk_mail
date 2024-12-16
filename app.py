@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 # Custom CSS for styling
-st.markdown(
+st.markdown("""
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -33,18 +33,8 @@ st.markdown(
         margin-bottom: 20px;
     }
 </style>
+""", unsafe_allow_html=True)
 
-<div class="main-header">Welcome to the Bulk Email Sender</div>
-<div class="description">
-    This tool allows you to send personalized emails to multiple recipients efficiently. <br>
-    <strong>Key Features:</strong>
-    <ul>
-        <li>Upload recipient list in Excel or CSV format with 'name' and 'email' columns.</li>
-        <li>Personalized email greetings.</li>
-        <li>Option to attach files.</li>
-    </ul>
-</div>
-, unsafe_allow_html=True)
 # Header Section
 st.markdown("""
 <div class="main-header">Welcome to the Bulk Email Sender</div>
@@ -57,7 +47,7 @@ st.markdown("""
         <li>Option to attach files.</li>
     </ul>
 </div>
-"", unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # Input Section
 st.title("Email Configuration")
@@ -65,7 +55,7 @@ st.title("Email Configuration")
 sender_email = st.text_input("Enter your Email address ")
 
 if sender_email:
-    password = st.text_input("Enter your App Password ", type="password")
+    password = st.text_input("Enter your App Password", type="password")
     st.markdown("[Find your App Password](https://www.youtube.com/watch?v=N_J3HCATA1c)")
 
     if password:
@@ -121,8 +111,8 @@ if sender_email:
                         personalized_body = body.replace("Dear Professor,", f"Dear Professor {recipient['name']},")
                         msg.attach(MIMEText(personalized_body, 'plain'))
 
-                        # Attach file
-                        if attachment:
+                        # Attach file if exists
+                        if attachment is not None:
                             try:
                                 part = MIMEApplication(attachment.read(), Name=attachment.name)
                                 part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
