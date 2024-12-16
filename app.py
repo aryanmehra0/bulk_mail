@@ -44,7 +44,7 @@ st.markdown(
         <li>Option to attach files.</li>
     </ul>
 </div>
-", unsafe_allow_html=True)
+, unsafe_allow_html=True)
 # Header Section
 st.markdown("""
 <div class="main-header">Welcome to the Bulk Email Sender</div>
